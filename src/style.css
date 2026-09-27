@@ -1,0 +1,63 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #10131a; }
+#app { min-height: 100vh; }
+
+/* 移动端优先：居中窄栏 */
+.app-shell {
+  max-width: 520px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f5f6f8;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 0 24px rgba(0,0,0,.35);
+}
+.app-header {
+  position: sticky; top: 0; z-index: 20;
+  background: #18a058; color: #fff;
+  padding: 10px 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.app-header .title { font-weight: 700; font-size: 16px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-body { flex: 1; padding: 12px 12px 76px; }
+.app-tabbar {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 520px; z-index: 20;
+  background: #fff; border-top: 1px solid #e5e7eb;
+  display: flex;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.app-tabbar a {
+  flex: 1; text-align: center; padding: 8px 0 6px;
+  color: #6b7280; text-decoration: none; font-size: 11px;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.app-tabbar a.active { color: #18a058; font-weight: 600; }
+.app-tabbar .ico { font-size: 20px; line-height: 1; }
+
+.section-title { font-size: 15px; font-weight: 700; margin: 16px 0 8px; color: #111827; }
+.muted { color: #6b7280; font-size: 12px; }
+.mono { font-variant-numeric: tabular-nums; }
+.big-code {
+  font-size: 28px; font-weight: 800; letter-spacing: 6px;
+  font-variant-numeric: tabular-nums; color: #18a058;
+}
+.row { display: flex; align-items: center; gap: 8px; }
+.between { justify-content: space-between; }
+.wrap { flex-wrap: wrap; }
+.mt8 { margin-top: 8px; } .mt12 { margin-top: 12px; } .mb8 { margin-bottom: 8px; }
+
+/* 时段格子 */
+.slot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.slot-cell {
+  border: 1px solid #e5e7eb; border-radius: 8px; padding: 6px 2px;
+  text-align: center; font-size: 12px; cursor: pointer; background: #fff;
+}
+.slot-cell.taken { background: #f3f4f6; color: #9ca3af; cursor: not-allowed; text-decoration: line-through; }
+.slot-cell.sel { border-color: #18a058; background: #e8f7ef; color: #18a058; font-weight: 700; }
+.slot-cell.night { position: relative; }
+.slot-cell.night::after { content: '🌙'; position: absolute; top: -6px; right: -2px; font-size: 10px; }
+
+/* 大按钮，适合现场操作 */
+.big-btn { height: 48px; font-size: 16px; }
